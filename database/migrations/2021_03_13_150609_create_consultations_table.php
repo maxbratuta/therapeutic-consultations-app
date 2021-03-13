@@ -5,16 +5,16 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
- * Class CreateUsersTable
+ * Class CreateConsultationsTable
  */
-class CreateUsersTable extends Migration
+class CreateConsultationsTable extends Migration
 {
     /**
      * Schema table name to migrate.
      *
      * @var string
      */
-    private string $tableName = 'users';
+    private string $tableName = 'consultations';
 
     /**
      * Run the migrations.
@@ -24,13 +24,15 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create($this->tableName, function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->dateTime('start_at');
+            $table->dateTime('end_at');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 
