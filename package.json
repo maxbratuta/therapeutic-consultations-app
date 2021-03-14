@@ -11,10 +11,16 @@
     },
     "devDependencies": {
         "autoprefixer": "^10.2.5",
-        "axios": "^0.21",
+        "axios": "^0.21.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.2.8",
         "tailwindcss": "^2.0.3"
+    },
+    "dependencies": {
+        "moment": "^2.29.1",
+        "require": "^2.4.20",
+        "sweetalert2": "^10.15.5",
+        "vis-timeline": "^7.4.6"
     }
 }

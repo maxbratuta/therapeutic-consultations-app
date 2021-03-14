@@ -19,27 +19,7 @@
     <div id="visualization"></div>
 </div>
 
-<script src="https://visjs.github.io/vis-timeline/standalone/umd/vis-timeline-graph2d.min.js"></script>
-
-<script type="text/javascript">
-    // DOM element where the Timeline will be attached
-    let container = document.getElementById('visualization');
-
-    // Create a DataSet (allows two way data-binding)
-    let items = new vis.DataSet({!! json_encode($data ?? []) !!});
-
-    // Configuration for the Timeline
-    let options = {
-        moment: function(date) {
-            return vis.moment(date).utc();
-        },
-        editable: false,
-        minHeight: 300
-    };
-
-    // Create a Timeline
-    let timeline = new vis.Timeline(container, items, options);
-</script>
+<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
 </body>
 </html>

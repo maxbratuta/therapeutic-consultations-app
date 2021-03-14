@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\DomainServices\ConsultationService;
 use App\Models\Consultation;
 use App\Models\User;
 use Carbon\Carbon;
@@ -20,61 +21,14 @@ class ConsultationSeeder extends Seeder
      */
     public function run()
     {
-        /**
-         * Поскольку сиды в Laravel рабатают через транзакции пришлось упростить заполнение БД через них.
-         *
-         * В другом случае рандомное заполнение БД выглядело бы так и был бы в отдельном файле фабрики:
-         *
-         * do {
-         *      $day = Carbon::now()->addDays(rand(0, 4))->toDateString();
-         *
-         *      $timeRange = $availableTimeRanges[array_rand($availableTimeRanges)];
-         *
-         *      $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $day . ' ' . $timeRange['start']);
-         *      $endAt = Carbon::createFromFormat('Y-m-d H:i:s', $day . ' ' . $timeRange['end']);
-         *
-         * } while (Consultation::whereStartAt($startAt)->whereEndAt($endAt)->exists());
-         */
-
         $daysCount = 4;
 
         $consultationsByDays = [];
 
-        $availableTimeRanges = [
-            [
-                'start' => '10:00:00',
-                'end' => '11:00:00'
-            ],
-            [
-                'start' => '11:00:00',
-                'end' => '12:00:00'
-            ],
-            [
-                'start' => '12:00:00',
-                'end' => '13:00:00'
-            ],
-            [
-                'start' => '14:00:00',
-                'end' => '15:00:00'
-            ],
-            [
-                'start' => '15:00:00',
-                'end' => '16:00:00'
-            ],
-            [
-                'start' => '16:00:00',
-                'end' => '17:00:00'
-            ],
-            [
-                'start' => '17:00:00',
-                'end' => '18:00:00'
-            ]
-        ];
-
         for ($i = 0; $i < $daysCount; $i++) {
             $day = Carbon::now()->addDays($i)->toDateString();
 
-            foreach ($availableTimeRanges as $key => $timeRange) {
+            foreach (ConsultationService::AVAILABLE_TIME_RANGES_IN_UTC as $key => $timeRange) {
                 $userId = User::all()->random()->id;
 
                 $startAt = Carbon::createFromFormat('Y-m-d H:i:s', $day . ' ' . $timeRange['start']);
