@@ -16,6 +16,8 @@
 <div class="container w-1/2 mx-auto">
     <h1 class="pt-14 pb-12 text-3xl font-medium">Therapeutic consultations</h1>
 
+    <p class="pb-6">Select the time for consultation from the range - 10:00 - 13:00, 14:00 - 18:00 <b>by clicking on the time section</b>.</p>
+
     <div id="visualization"></div>
 </div>
 
