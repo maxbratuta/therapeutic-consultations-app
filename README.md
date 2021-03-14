@@ -6,7 +6,10 @@ Create a project for displaying therapeutic consultation.
 ## Used Libraries:
 
 - [Tailwind CSS](https://tailwindcss.com/)
+- [axios](https://www.npmjs.com/package/axios)
 - [vis.js](https://visjs.github.io/vis-timeline/docs/timeline/index.html)
+- [moment.js](https://momentjs.com/)
+- [SweetAlert 2](https://sweetalert2.github.io/)
 
 
 ## Installation Overview
