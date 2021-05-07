@@ -1,5 +1,7 @@
 # Therapeutic Consultations
 
+![Therapeutic Consultations](https://i.ibb.co/7tjNfnn/therapeutic-consultations.png)
+
 Create a project for displaying therapeutic consultation.
 
 
